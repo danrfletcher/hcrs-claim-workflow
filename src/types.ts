@@ -22,3 +22,19 @@ export interface Decision {
   reasonText: string;
   drivingField?: string;
 }
+
+export interface UsageStats {
+  promptTokens: number;
+  completionTokens: number;
+  costGbp: number;
+}
+
+export interface Trace {
+  runId: string;
+  docId: string;
+  timestamp: string;
+  model: string;
+  usage: UsageStats;
+  extractedFields: ExtractedFields | null;
+  decision: Decision;
+}

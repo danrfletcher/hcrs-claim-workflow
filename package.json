@@ -17,6 +17,7 @@
     "typescript": "^5.9.3"
   },
   "dependencies": {
-    "xstate": "^5.32.6"
+    "xstate": "^5.32.6",
+    "zod": "^4.4.3"
   }
 }

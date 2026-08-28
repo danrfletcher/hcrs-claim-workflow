@@ -17,3 +17,10 @@
 
 ## Synthetic Data Generation
 **D-07 — Synthetic Data Pipeline:** Authored ground-truth specifications (`specs.json`) directly in code to establish deterministic `gold.json` targets. Generated 20 realistic `.txt` policy packs via one-shot calls to Gemini 3.6 Flash using a seed of 42. Bypassed multi-agent validation loops to keep generation under 15 minutes, relying on `eval.ts` to surface extraction mismatches empirically.
+
+## Initial Workflow Scaffold
+**D-08 — Schema & Type Contract:** Defined the nine HCRS-1 fields as a nullable Zod schema (`ExtractedFieldsSchema`) plus `Decision`/`Trace`/`UsageStats` interfaces in `types.ts` — one contract shared by extraction, rules and tracing, so a field can't silently drift shape between stages.
+**D-09 — Eligibility Ruleset as a Pure Function:** Implemented the gate cascade (A window → C4 early cancellation → C3 prior ruling → C2 no commission → C1 de minimis → B1 discretion / B2 ratio) as a single deterministic function in `rules.ts` that only ever sees validated fields, never raw document text — the injection-resistance from D-05 realised in code, not just stated.
+**D-10 — Single-Pass Extraction Pipeline:** `pipeline.ts` wires ingest → extract → decide → persist as a plain async function per document, one OpenAI-SDK client pointed at OpenRouter, JSON-mode output forced through `ExtractedFieldsSchema.parse()`. A failed extraction or schema mismatch is caught and downgraded to a `FAILED` verdict rather than throwing.
+**D-11 — Cost Model:** Hardcoded per-model token-price table (`PRICING_MAP`) computed at trace time — simpler and fully auditable, at the cost of going stale if OpenRouter repricing isn't manually reflected.
+**D-12 — Dual-Model Comparison Harness:** `eval.ts` runs every gold-set document through two configurations — Pass A (Qwen alone) and Pass B (Qwen + GLM, escalating to human on disagreement) — against the hand-authored `specs.json` ground truth, printing per-document pass/fail plus aggregate accuracy and a 10k-item/month cost projection.

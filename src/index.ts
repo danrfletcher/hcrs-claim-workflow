@@ -11,9 +11,43 @@ async function main() {
     console.error(`❌ No inbox directory at ${inboxDir}`);
     process.exit(1);
   }
-  const files = fs.readdirSync(inboxDir).filter((f) => f.endsWith('.txt')).sort();
+  const allFiles = fs.readdirSync(inboxDir).filter((f) => f.endsWith('.txt')).sort();
+
+  // Optional arg, three shapes:
+  //   (nothing)              → run every document in data/inbox
+  //   npm start -- 3         → run just the first 3 (sorted order: hcrs-01..hcrs-03)
+  //   npm start -- hcrs-01   → run just the named document(s) (hcrs-01.txt also accepted,
+  //                            multiple ids may be given)
+  // No need to move any files aside to test a subset — this never touches data/inbox.
+  const requestedArgs = process.argv.slice(2);
+  const soleArg = requestedArgs.length === 1 ? (requestedArgs[0] ?? '') : '';
+  const isCountArg = requestedArgs.length === 1 && /^\d+$/.test(soleArg);
+
+  let files: string[];
+  if (requestedArgs.length === 0) {
+    files = allFiles;
+  } else if (isCountArg) {
+    const n = parseInt(soleArg, 10);
+    if (n <= 0) {
+      console.error(`❌ Invalid count "${soleArg}" — must be a positive integer.`);
+      process.exit(1);
+    }
+    files = allFiles.slice(0, n);
+    if (files.length < n) {
+      console.warn(`⚠️  Requested the first ${n} documents but only ${files.length} exist in data/inbox.`);
+    }
+  } else {
+    files = requestedArgs
+      .map((id) => (id.endsWith('.txt') ? id : `${id}.txt`))
+      .filter((f) => {
+        const exists = allFiles.includes(f);
+        if (!exists) console.warn(`⚠️  Skipping ${f} — not found in data/inbox`);
+        return exists;
+      });
+  }
+
   if (files.length === 0) {
-    console.error('❌ No .txt documents found in data/inbox');
+    console.error('❌ No matching .txt documents found in data/inbox');
     process.exit(1);
   }
 

@@ -1,9 +1,9 @@
 import 'dotenv/config';
 import fs from 'node:fs';
 import path from 'node:path';
-import { processDocument, extractWithModel } from './pipeline.js';
+import { processDocument, extractWithModel, PRIMARY_MODEL, SECONDARY_MODEL } from './pipeline.js';
 import { evaluateEligibility } from './rules.js';
-import type { ExtractedFields, Decision } from './types.js';
+import type { ExtractedFields } from './types.js';
 
 interface GroundTruthSpec {
   doc_id: string;
@@ -12,10 +12,19 @@ interface GroundTruthSpec {
   fields: ExtractedFields;
 }
 
+// data/inbox files are named hcrs-01.txt..hcrs-20.txt; specs.json doc_id is
+// hcrs-0001..hcrs-0020. Match on the trailing number rather than the string, so
+// numbering-format drift between the corpus and the spec file can't silently produce
+// zero matches (as it previously did — every row fell back to 'UNKNOWN').
+function trailingNumber(id: string): number {
+  const match = id.match(/(\d+)(?!.*\d)/);
+  const digits = match?.[1];
+  return digits ? parseInt(digits, 10) : NaN;
+}
+
 async function runEvaluation() {
   console.log('🚀 Starting HCRS-1 Evaluation Pipeline...\n');
 
-  // 1. Load Ground Truth Specs
   const specsPath = path.resolve('./data/specs.json');
   if (!fs.existsSync(specsPath)) {
     console.error('❌ Missing ./data/specs.json file!');
@@ -23,68 +32,69 @@ async function runEvaluation() {
   }
   const rawSpecs = JSON.parse(fs.readFileSync(specsPath, 'utf-8'));
   const specs: GroundTruthSpec[] = rawSpecs.documents;
+  const specsByNumber = new Map(specs.map((s) => [trailingNumber(s.doc_id), s]));
 
   const inboxDir = path.resolve('./data/inbox');
-  const files = fs.readdirSync(inboxDir).filter(f => f.endsWith('.txt'));
+  const files = fs.readdirSync(inboxDir).filter((f) => f.endsWith('.txt')).sort();
 
-  let passACorrect = 0;
-  let passBCorrect = 0; // Dual pass / reconciled
-  let totalCostGbp = 0;
+  let configACorrect = 0;
+  let configBCorrect = 0;
+  let configACostUsd = 0;
+  let configBCostUsd = 0;
+  let unmatched = 0;
 
-  console.log(`Processing ${files.length} test documents across 2 configurations...\n`);
+  console.log(`Processing ${files.length} test documents across 2 configurations...`);
+  console.log(`Config A = single-pass (${PRIMARY_MODEL} only)`);
+  console.log(`Config B = production pipeline: dual-pass reconciled (${PRIMARY_MODEL} + ${SECONDARY_MODEL}, escalate on disagreement)\n`);
 
   for (const file of files) {
     const docId = file.replace('.txt', '');
-    const spec = specs.find(s => s.doc_id === docId);
-    const filePath = path.join(inboxDir, file);
-
-    // Config A: Primary Model (Qwen 2.5 72B)
-    const traceA = await processDocument(filePath, 'qwen/qwen-2.5-72b-instruct', 'eval_run');
-    totalCostGbp += traceA.usage.costGbp;
-
-    // Config B: Secondary Model (GLM-4 9B) for Dual-Pass Reconciliation
-    const rawText = fs.readFileSync(filePath, 'utf-8');
-    let decisionB: Decision;
-    try {
-      const passBExt = await extractWithModel(rawText, 'thudm/glm-4-9b-chat');
-      totalCostGbp += passBExt.usage.costGbp;
-      decisionB = evaluateEligibility(passBExt.fields);
-    } catch {
-      decisionB = { verdict: 'FAILED', reasonCode: 'EXTRACTION_ERROR', reasonText: 'Model B failed' };
-    }
-
-    // Dual-Pass Logic: Escalate if Model A and Model B disagree
-    let finalVerdictB = traceA.decision.verdict;
-    if (traceA.decision.verdict !== decisionB.verdict) {
-      finalVerdictB = 'ESCALATE_HUMAN';
-    }
-
+    const spec = specsByNumber.get(trailingNumber(docId));
     const expected = spec ? spec.expected_verdict : 'UNKNOWN';
+    if (!spec) {
+      unmatched++;
+      console.warn(`⚠️  No gold-set match for ${docId}`);
+    }
 
-    const matchA = traceA.decision.verdict === expected;
-    const matchB = finalVerdictB === expected;
+    const filePath = path.join(inboxDir, file);
+    const rawText = fs.readFileSync(filePath, 'utf-8');
 
-    if (matchA) passACorrect++;
-    if (matchB) passBCorrect++;
+    // Config A: single-pass baseline. Not persisted as a trace — comparison-only, so
+    // running the eval doesn't create trace files that look like real production runs.
+    let verdictA = 'FAILED';
+    try {
+      const { fields, usage } = await extractWithModel(rawText, PRIMARY_MODEL);
+      verdictA = evaluateEligibility(fields).verdict;
+      configACostUsd += usage.costUsd;
+    } catch {
+      verdictA = 'FAILED';
+    }
 
-    console.log(`[${docId}] Expected: ${expected.padEnd(17)} | Pass A: ${traceA.decision.verdict.padEnd(17)} (${matchA ? '✅' : '❌'}) | Dual-Pass: ${finalVerdictB.padEnd(17)} (${matchB ? '✅' : '❌'})`);
+    // Config B: the actual production pipeline (dual-pass, reconciled, traced).
+    const traceB = await processDocument(filePath, PRIMARY_MODEL, SECONDARY_MODEL, 'eval_run');
+    configBCostUsd += traceB.totalCostUsd;
+    const verdictB = traceB.decision.verdict;
+
+    const matchA = verdictA === expected;
+    const matchB = verdictB === expected;
+    if (matchA) configACorrect++;
+    if (matchB) configBCorrect++;
+
+    console.log(`[${docId}] Expected: ${expected.padEnd(17)} | Config A: ${verdictA.padEnd(17)} (${matchA ? '✅' : '❌'}) | Config B: ${verdictB.padEnd(17)} (${matchB ? '✅' : '❌'})`);
   }
 
-  // Cost & Performance Summary
-  const avgCostPerItem = totalCostGbp / files.length;
-  const projected10kCost = avgCostPerItem * 10000;
-
+  const n = files.length;
   console.log('\n================ EVALUATION SUMMARY ================');
-  console.log(`Total Documents Tested:   ${files.length}`);
-  console.log(`Pass A (Single Model):    ${passACorrect}/${files.length} Accuracy (${((passACorrect / files.length) * 100).toFixed(1)}%)`);
-  console.log(`Pass B (Dual Reconciled): ${passBCorrect}/${files.length} Accuracy (${((passBCorrect / files.length) * 100).toFixed(1)}%)`);
-  console.log('----------------------------------------------------');
-  console.log(`Measured Run Cost:        £${totalCostGbp.toFixed(4)}`);
-  console.log(`Average Cost per Item:    £${avgCostPerItem.toFixed(5)}`);
-  console.log(`Projected 10k/Month Cost: £${projected10kCost.toFixed(2)}`);
-  console.log('====================================================\n');
+  console.log(`Total Documents Tested:          ${n}${unmatched ? `  (⚠️  ${unmatched} unmatched against gold set)` : ''}`);
+  console.log(`Config A (single-pass):          ${configACorrect}/${n} accuracy (${((configACorrect / n) * 100).toFixed(1)}%)`);
+  console.log(`Config B (dual-pass reconciled): ${configBCorrect}/${n} accuracy (${((configBCorrect / n) * 100).toFixed(1)}%)`);
+  console.log('------------------------------------------------------');
+  console.log(`Config A cost:   $${configACostUsd.toFixed(4)} total  |  $${(configACostUsd / n).toFixed(5)}/item  |  $${((configACostUsd / n) * 10000).toFixed(2)} projected / 10k items`);
+  console.log(`Config B cost:   $${configBCostUsd.toFixed(4)} total  |  $${(configBCostUsd / n).toFixed(5)}/item  |  $${((configBCostUsd / n) * 10000).toFixed(2)} projected / 10k items`);
+  console.log('========================================================\n');
 }
 
-runEvaluation().catch(err => {
+runEvaluation().catch((err) => {
   console.error('Fatal evaluation error:', err);
+  process.exit(1);
 });

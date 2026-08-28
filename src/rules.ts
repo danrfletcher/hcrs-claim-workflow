@@ -134,3 +134,48 @@ export function evaluateEligibility(fields: ExtractedFields): Decision {
     drivingField: 'commission_basis'
   };
 }
+/**
+ * Reconciles two independent model passes over the same document into one final
+ * decision. Pure function — no LLM call, no access to raw document text — so it
+ * cannot be influenced by anything planted inside the source document (see hcrs-19's
+ * planted prompt-injection sentence, which never reaches this function or rules.ts's
+ * evaluateEligibility because pipeline.ts discards raw text after extraction).
+ *
+ * This is the second real orchestration step: two extraction passes feed into this
+ * reconciliation step, which is what turns ESCALATE_HUMAN from a declared-but-unreachable
+ * enum value into a real production outcome.
+ */
+export function reconcileDecisions(primary: Decision, secondary: Decision): Decision {
+  const primaryFailed = primary.verdict === 'FAILED';
+  const secondaryFailed = secondary.verdict === 'FAILED';
+
+  if (primaryFailed && secondaryFailed) {
+    return {
+      verdict: 'FAILED',
+      reasonCode: 'DUAL_PASS.both_failed',
+      reasonText: `Both extraction passes failed. Primary: ${primary.reasonText} | Secondary: ${secondary.reasonText}`
+    };
+  }
+
+  if (primaryFailed || secondaryFailed) {
+    const surviving = primaryFailed ? secondary : primary;
+    return {
+      verdict: 'ESCALATE_HUMAN',
+      reasonCode: 'DUAL_PASS.single_pass_only',
+      reasonText: `Only one extraction pass succeeded (would-be verdict ${surviving.verdict} / ${surviving.reasonCode}). Escalated rather than trusting a single uncorroborated read.`,
+      ...(surviving.drivingField ? { drivingField: surviving.drivingField } : {})
+    };
+  }
+
+  if (primary.verdict === secondary.verdict && primary.reasonCode === secondary.reasonCode) {
+    // Agreement is the common path: both independent passes landed on the same
+    // verdict via the same gate, so the primary pass's decision stands.
+    return primary;
+  }
+
+  return {
+    verdict: 'ESCALATE_HUMAN',
+    reasonCode: 'DUAL_PASS.disagreement',
+    reasonText: `Models disagreed on this document. Primary → ${primary.verdict} (${primary.reasonCode}: ${primary.reasonText}). Secondary → ${secondary.verdict} (${secondary.reasonCode}: ${secondary.reasonText}). Escalated for human review.`
+  };
+}

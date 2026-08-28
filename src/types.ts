@@ -26,15 +26,28 @@ export interface Decision {
 export interface UsageStats {
   promptTokens: number;
   completionTokens: number;
-  costGbp: number;
+  // OpenRouter quotes model pricing in USD; we report cost in USD natively rather than
+  // apply an unaudited FX conversion to GBP. See DECISION_CHRONOLOGY.md Remediation section.
+  costUsd: number;
+}
+
+// The result of one independent model pass over one document: extraction + the
+// deterministic rules verdict computed from that extraction alone.
+export interface PassResult {
+  model: string;
+  usage: UsageStats;
+  fields: ExtractedFields | null;
+  decision: Decision;
+  error?: string;
 }
 
 export interface Trace {
   runId: string;
   docId: string;
   timestamp: string;
-  model: string;
-  usage: UsageStats;
-  extractedFields: ExtractedFields | null;
+  primary: PassResult;
+  secondary: PassResult;
+  totalCostUsd: number;
+  // The reconciled, final decision for this document (see rules.ts#reconcileDecisions).
   decision: Decision;
 }

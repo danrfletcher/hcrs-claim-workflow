@@ -4,7 +4,7 @@
   "description": "Fictional HCRS scheme claim extraction workflow",
   "license": "ISC",
   "author": "danrfletcher",
-  "type": "commonjs",
+  "type": "module",
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",

@@ -1,0 +1,67 @@
+AULDBURY COVER GROUP
+Customer Acquisition & Brokerage Ledger
+Branch File Ref: ACG-2020-63307
+Record Date: 24 February 2020
+
+SALES AND ONBOARDING FILE NOTE
+
+Agent Name: Marcus Vance (ID: MV-4091)
+Lead Origin: Premier Lead Generation Ltd (Partner Code: PLG-882)
+Customer Name: Mr Julian Thorne
+Risk Address: 14 Oakhaven Rise, High Marsh, Marchshire, WX9 2LP
+
+Initial Contact Summary:
+Customer was contacted following an online enquiry routed via Premier Lead Generation Ltd on 12 February 2020. Mr Thorne expressed interest in securing comprehensive home emergency protection covering central heating, internal plumbing, and main electrical supply. 
+
+Underwriting & Tariff Application:
+The customer was quoted using the published Auldbury Standard Residential Schedule (v2019.4). Under corporate governance rules, field representatives hold no individual authority to amend, adjust, or personally negotiate premium rates. The monthly fee of £23.00 was fixed strictly in accordance with the published age-band matrix for the property's boiler and infrastructure. No discretionary pricing allowance was available or requested.
+
+Underwriter Approval: Granted automatically via portal on 14 February 2020.
+Direct Debit Mandate: Executed by customer on 15 February 2020.
+Inception of Risk: Cover came into force on 17 February 2020.
+
+
+EXTRACT: CENTRAL BROKERAGE & INTRODUCER LEDGER
+Account: Premier Lead Generation Ltd (Vendor Ref: V-882-PLG)
+Sub-Ledger: Acquisition Fees & Third-Party Sourcing
+Transaction Period: February 2020
+
+Posting Date: 21 February 2020
+Transaction ID: TXN-2020-08814
+Policy Identifier: ACG-2020-63307
+Transaction Details: One-off introducer fee payable to Premier Lead Generation Ltd for qualified lead provision and customer transfer regarding risk address 14 Oakhaven Rise.
+Ledger Classification: External Lead Acquisition Expense
+Commission Status: Zero / None. This policy carries no commission arrangement. Selling representative Marcus Vance receives standard salaried remuneration with no variable commission, volume rebate, or earnings share attached to this policy agreement.
+Amount Cleared: £470.00
+
+
+TELEPHONE SERVICE LOG / MEMORANDUM
+
+Date: 14 August 2024
+Caller: Mr Julian Thorne
+Handler: Sarah Jenkins (Retentions & Servicing)
+
+Customer called to request an updated copy of his schedule for his records and inquired whether his bank details remained current. Handler confirmed the monthly collection of £23.00 via Direct Debit continues on the 17th of each month. 
+
+Handler checked the live central administration database. Policy ACG-2020-63307 remains fully active with no notice of cancellation received, no gaps in cover, and no historical disputes or external rulings on record. 
+
+
+ACCOUNT SUMMARY STATEMENT
+Policyholder: Mr Julian Thorne
+Policy Reference: ACG-2020-63307
+Statement Date: 17 March 2024
+Coverage Period Covered: 17 February 2020 to 16 March 2024
+
+Schedule of Direct Debit Collections:
+
+17 Feb 2020 - Initial Payment: £23.00
+17 Mar 2020 to 17 Dec 2020 (10 payments @ £23.00): £230.00
+17 Jan 2021 to 17 Dec 2021 (12 payments @ £23.00): £276.00
+17 Jan 2022 to 17 Dec 2022 (12 payments @ £23.00): £276.00
+17 Jan 2023 to 17 Dec 2023 (12 payments @ £23.00): £276.00
+17 Jan 2024 to 17 Mar 2024 (3 payments @ £23.00): £69.00
+
+Total Completed Instalments: 50
+Total Premiums Received to Date: £1,150.00
+Outstanding Balance: £0.00
+Policy Status: Live / Active

@@ -14,3 +14,6 @@
 │   └── types.ts      # Zod schema & TypeScript interfaces
 ├── data/inbox/       # 20 synthetic .txt files
 └── DECISION_LOG.md   # Written answers to the 7 questions
+
+## Synthetic Data Generation
+**D-07 — Synthetic Data Pipeline:** Authored ground-truth specifications (`specs.json`) directly in code to establish deterministic `gold.json` targets. Generated 20 realistic `.txt` policy packs via one-shot calls to Gemini 3.6 Flash using a seed of 42. Bypassed multi-agent validation loops to keep generation under 15 minutes, relying on `eval.ts` to surface extraction mismatches empirically.

@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-07.txt",
+  "timestamp": "2026-08-29T06:57:26.720Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 994,
+      "completionTokens": 296,
+      "costUsd": 0.000554
+    },
+    "fields": {
+      "provider_name": "Northgate Home Assist Limited",
+      "policy_reference": "NHA-2018-44192",
+      "cover_start_date": "2018-03-01",
+      "cancelled_date": null,
+      "total_premiums_paid": 1240,
+      "commission_amount": 62,
+      "commission_basis": "fixed",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C1.de_minimis",
+      "reasonText": "Excluded under Gate C1: commission of £62.00 is at or below the £75 de minimis threshold.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 1020,
+      "completionTokens": 1238,
+      "costUsd": 0.000386
+    },
+    "fields": {
+      "provider_name": "Northgate Home Assist Limited",
+      "policy_reference": "NHA-2018-44192",
+      "cover_start_date": "2018-03-01",
+      "cancelled_date": null,
+      "total_premiums_paid": 1240,
+      "commission_amount": 62,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C1.de_minimis",
+      "reasonText": "Excluded under Gate C1: commission of £62.00 is at or below the £75 de minimis threshold.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.0009400000000000001,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "C1.de_minimis",
+    "reasonText": "Excluded under Gate C1: commission of £62.00 is at or below the £75 de minimis threshold.",
+    "drivingField": "commission_amount"
+  }
+}

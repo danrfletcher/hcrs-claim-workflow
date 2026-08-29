@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-15.txt",
+  "timestamp": "2026-08-29T06:57:58.430Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 2501,
+      "completionTokens": 212,
+      "costUsd": 0.0007546
+    },
+    "fields": {
+      "provider_name": "Ashcombe Home Emergency plc",
+      "policy_reference": "AHE-2020-69054",
+      "cover_start_date": "2020-06-08",
+      "cancelled_date": null,
+      "total_premiums_paid": 2100,
+      "commission_amount": 500,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 2637,
+      "completionTokens": 715,
+      "costUsd": 0.000376525
+    },
+    "fields": {
+      "provider_name": "Ashcombe Home Emergency PLC",
+      "policy_reference": "AHE-2020-69054",
+      "cover_start_date": "2020-06-08",
+      "cancelled_date": null,
+      "total_premiums_paid": 2100,
+      "commission_amount": 500,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "totalCostUsd": 0.001131125,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "B.neither_limb",
+    "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+    "drivingField": "commission_basis"
+  }
+}

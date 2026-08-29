@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-02.txt",
+  "timestamp": "2026-08-29T06:56:47.204Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 718,
+      "completionTokens": 243,
+      "costUsd": 0.00043519999999999995
+    },
+    "fields": {
+      "provider_name": "CALDERVALE DOMESTIC COVER PLC",
+      "policy_reference": "CDC-2019-77402",
+      "cover_start_date": "2019-09-02",
+      "cancelled_date": null,
+      "total_premiums_paid": 960,
+      "commission_amount": 412,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 42.9% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 734,
+      "completionTokens": 840,
+      "costUsd": 0.00026505
+    },
+    "fields": {
+      "provider_name": "Caldervale Domestic Cover plc",
+      "policy_reference": "CDC-2019-77402",
+      "cover_start_date": "2019-09-02",
+      "cancelled_date": null,
+      "total_premiums_paid": 960,
+      "commission_amount": 412,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 42.9% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.0007002499999999999,
+  "decision": {
+    "verdict": "ELIGIBLE",
+    "reasonCode": "ELIGIBLE.b2_ratio",
+    "reasonText": "Eligible under Gate B2: commission ratio of 42.9% meets or exceeds 35%.",
+    "drivingField": "commission_amount"
+  }
+}

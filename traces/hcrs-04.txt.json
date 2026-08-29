@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-04.txt",
+  "timestamp": "2026-08-29T06:57:18.118Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 698,
+      "completionTokens": 348,
+      "costUsd": 0.0005571999999999999
+    },
+    "fields": {
+      "provider_name": "Marlow & Finch Cover Services",
+      "policy_reference": "MFC-2021-58831",
+      "cover_start_date": "2021-03-08",
+      "cancelled_date": "2026-05-19",
+      "total_premiums_paid": 210,
+      "commission_amount": 88,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 713,
+      "completionTokens": 3260,
+      "costUsd": 0.0008684750000000001
+    },
+    "fields": {
+      "provider_name": "Marlow & Finch Cover Services",
+      "policy_reference": "MFC-2021-58831",
+      "cover_start_date": "2021-03-08",
+      "cancelled_date": "2026-05-19",
+      "total_premiums_paid": 210,
+      "commission_amount": 88,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "totalCostUsd": 0.001425675,
+  "decision": {
+    "verdict": "ELIGIBLE",
+    "reasonCode": "ELIGIBLE.b1_discretion",
+    "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+    "drivingField": "discretion_exercised"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-16.txt",
+  "timestamp": "2026-08-29T06:58:29.791Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 1010,
+      "completionTokens": 480,
+      "costUsd": 0.000778
+    },
+    "fields": {
+      "provider_name": "Danebridge Cover Services Ltd",
+      "policy_reference": "DCS-2010-14877",
+      "cover_start_date": null,
+      "cancelled_date": null,
+      "total_premiums_paid": 1740,
+      "commission_amount": 348,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.cover_start_date",
+      "reasonText": "Insufficient data: cover_start_date is missing.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 1027,
+      "completionTokens": 4824,
+      "costUsd": 0.0012830250000000001
+    },
+    "fields": {
+      "provider_name": "Danebridge Cover Services Ltd",
+      "policy_reference": "DCS-2010-14877",
+      "cover_start_date": null,
+      "cancelled_date": null,
+      "total_premiums_paid": 1740,
+      "commission_amount": 348,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.cover_start_date",
+      "reasonText": "Insufficient data: cover_start_date is missing.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "totalCostUsd": 0.002061025,
+  "decision": {
+    "verdict": "INSUFFICIENT_DATA",
+    "reasonCode": "MISSING.cover_start_date",
+    "reasonText": "Insufficient data: cover_start_date is missing.",
+    "drivingField": "cover_start_date"
+  }
+}

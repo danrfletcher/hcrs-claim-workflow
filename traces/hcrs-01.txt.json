@@ -1,0 +1,61 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-01.txt",
+  "timestamp": "2026-08-29T06:56:49.124Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 886,
+      "completionTokens": 387,
+      "costUsd": 0.0006416
+    },
+    "fields": {
+      "provider_name": "Everdon Home Assist plc",
+      "policy_reference": "EHA-2016-30188",
+      "cover_start_date": "2016-04-11",
+      "cancelled_date": null,
+      "total_premiums_paid": 1480,
+      "commission_amount": 296,
+      "commission_basis": null,
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 906,
+      "completionTokens": 1040,
+      "costUsd": 0.00032795
+    },
+    "fields": {
+      "provider_name": "Everdon Home Assist plc",
+      "policy_reference": "EHA-2016-30188",
+      "cover_start_date": "2016-04-11",
+      "cancelled_date": null,
+      "total_premiums_paid": 1480,
+      "commission_amount": 296,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "totalCostUsd": 0.00096955,
+  "decision": {
+    "verdict": "ESCALATE_HUMAN",
+    "reasonCode": "DUAL_PASS.disagreement",
+    "reasonText": "Models disagreed on this document. Primary → NOT_ELIGIBLE (B.neither_limb: Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).). Secondary → ELIGIBLE (ELIGIBLE.b1_discretion: Eligible under Gate B1: discretionary premium setting was exercised by agent.). Escalated for human review."
+  }
+}

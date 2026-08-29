@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-08.txt",
+  "timestamp": "2026-08-29T06:57:28.559Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 942,
+      "completionTokens": 213,
+      "costUsd": 0.000444
+    },
+    "fields": {
+      "provider_name": "Ravensmere Domestic Assist Limited",
+      "policy_reference": "RDA-2013-20744",
+      "cover_start_date": "2013-11-05",
+      "cancelled_date": "2016-01-20",
+      "total_premiums_paid": 2680,
+      "commission_amount": 402,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 961,
+      "completionTokens": 1098,
+      "costUsd": 0.000346575
+    },
+    "fields": {
+      "provider_name": "Ravensmere Domestic Assist Limited",
+      "policy_reference": "RDA-2013-20744",
+      "cover_start_date": "2013-11-05",
+      "cancelled_date": "2016-01-20",
+      "total_premiums_paid": 2680,
+      "commission_amount": 402,
+      "commission_basis": "fixed",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "totalCostUsd": 0.000790575,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "B.neither_limb",
+    "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+    "drivingField": "commission_basis"
+  }
+}

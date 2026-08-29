@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-13.txt",
+  "timestamp": "2026-08-29T06:58:02.354Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 660,
+      "completionTokens": 230,
+      "costUsd": 0.000408
+    },
+    "fields": {
+      "provider_name": "Bramforth Cover Partners Ltd",
+      "policy_reference": "BCP-2008-09441",
+      "cover_start_date": "2008-10-03",
+      "cancelled_date": null,
+      "total_premiums_paid": null,
+      "commission_amount": null,
+      "commission_basis": null,
+      "discretion_exercised": null,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "A.window",
+      "reasonText": "Excluded under Gate A: cover start date 2008-10-03 is outside the 2011-2023 qualifying window.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 672,
+      "completionTokens": 818,
+      "costUsd": 0.0002549
+    },
+    "fields": {
+      "provider_name": "BRAMFORTH COVER PARTNERS LTD",
+      "policy_reference": "BCP-2008-09441",
+      "cover_start_date": "2008-10-03",
+      "cancelled_date": null,
+      "total_premiums_paid": null,
+      "commission_amount": null,
+      "commission_basis": null,
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "A.window",
+      "reasonText": "Excluded under Gate A: cover start date 2008-10-03 is outside the 2011-2023 qualifying window.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "totalCostUsd": 0.0006629,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "A.window",
+    "reasonText": "Excluded under Gate A: cover start date 2008-10-03 is outside the 2011-2023 qualifying window.",
+    "drivingField": "cover_start_date"
+  }
+}

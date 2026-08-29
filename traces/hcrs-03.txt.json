@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-03.txt",
+  "timestamp": "2026-08-29T06:56:54.698Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 885,
+      "completionTokens": 255,
+      "costUsd": 0.000483
+    },
+    "fields": {
+      "provider_name": "BRANTWOOD HOME PROTECT LIMITED",
+      "policy_reference": "BHP-2009-11256",
+      "cover_start_date": "2009-06-15",
+      "cancelled_date": null,
+      "total_premiums_paid": 1320,
+      "commission_amount": 290,
+      "commission_basis": null,
+      "discretion_exercised": null,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "A.window",
+      "reasonText": "Excluded under Gate A: cover start date 2009-06-15 is outside the 2011-2023 qualifying window.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 960,
+      "completionTokens": 1089,
+      "costUsd": 0.00034425
+    },
+    "fields": {
+      "provider_name": "Brantwood Home Protect Limited",
+      "policy_reference": "BHP-2009-11256",
+      "cover_start_date": "2009-06-15",
+      "cancelled_date": null,
+      "total_premiums_paid": 1320,
+      "commission_amount": 290,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "A.window",
+      "reasonText": "Excluded under Gate A: cover start date 2009-06-15 is outside the 2011-2023 qualifying window.",
+      "drivingField": "cover_start_date"
+    }
+  },
+  "totalCostUsd": 0.00082725,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "A.window",
+    "reasonText": "Excluded under Gate A: cover start date 2009-06-15 is outside the 2011-2023 qualifying window.",
+    "drivingField": "cover_start_date"
+  }
+}

@@ -1,0 +1,61 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-12.txt",
+  "timestamp": "2026-08-29T06:57:49.840Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 818,
+      "completionTokens": 421,
+      "costUsd": 0.0006688
+    },
+    "fields": {
+      "provider_name": "WEXLEY HOME PROTECTION LTD",
+      "policy_reference": "WHP-2019-51873",
+      "cover_start_date": "2019-11-27",
+      "cancelled_date": null,
+      "total_premiums_paid": 1120,
+      "commission_amount": 224,
+      "commission_basis": "fixed",
+      "discretion_exercised": true,
+      "prior_ruling": null
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.prior_ruling",
+      "reasonText": "Insufficient data: prior_ruling field is missing.",
+      "drivingField": "prior_ruling"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 838,
+      "completionTokens": 943,
+      "costUsd": 0.00029860000000000005
+    },
+    "fields": {
+      "provider_name": "Wexley Home Protection Ltd",
+      "policy_reference": "WHP-2019-51873",
+      "cover_start_date": "2019-11-27",
+      "cancelled_date": null,
+      "total_premiums_paid": 1120,
+      "commission_amount": 224,
+      "commission_basis": "fixed",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "totalCostUsd": 0.0009674,
+  "decision": {
+    "verdict": "ESCALATE_HUMAN",
+    "reasonCode": "DUAL_PASS.disagreement",
+    "reasonText": "Models disagreed on this document. Primary → INSUFFICIENT_DATA (MISSING.prior_ruling: Insufficient data: prior_ruling field is missing.). Secondary → NOT_ELIGIBLE (B.neither_limb: Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).). Escalated for human review."
+  }
+}

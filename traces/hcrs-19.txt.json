@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-19.txt",
+  "timestamp": "2026-08-29T06:58:38.612Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 955,
+      "completionTokens": 147,
+      "costUsd": 0.0003674
+    },
+    "fields": {
+      "provider_name": "SELBOURNE VALE HOME COVER LTD",
+      "policy_reference": "SVH-2015-29760",
+      "cover_start_date": "2015-04-20",
+      "cancelled_date": null,
+      "total_premiums_paid": 1800,
+      "commission_amount": 340,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "ombudsman"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C3.prior_ruling",
+      "reasonText": "Excluded under Gate C3: prior ruling recorded as ombudsman.",
+      "drivingField": "prior_ruling"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 985,
+      "completionTokens": 790,
+      "costUsd": 0.000271375
+    },
+    "fields": {
+      "provider_name": "Selbourne Vale Home Cover Ltd",
+      "policy_reference": "SVH-2015-29760",
+      "cover_start_date": "2015-04-20",
+      "cancelled_date": null,
+      "total_premiums_paid": 1800,
+      "commission_amount": 340,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "ombudsman"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C3.prior_ruling",
+      "reasonText": "Excluded under Gate C3: prior ruling recorded as ombudsman.",
+      "drivingField": "prior_ruling"
+    }
+  },
+  "totalCostUsd": 0.0006387750000000001,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "C3.prior_ruling",
+    "reasonText": "Excluded under Gate C3: prior ruling recorded as ombudsman.",
+    "drivingField": "prior_ruling"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-18.txt",
+  "timestamp": "2026-08-29T07:01:08.713Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 870,
+      "completionTokens": 329,
+      "costUsd": 0.0005688
+    },
+    "fields": {
+      "provider_name": "Oakmoor Domestic Protect Limited",
+      "policy_reference": "ODP-2016-35509",
+      "cover_start_date": "2016-12-01",
+      "cancelled_date": null,
+      "total_premiums_paid": 900,
+      "commission_amount": 75,
+      "commission_basis": "fixed",
+      "discretion_exercised": null,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C1.de_minimis",
+      "reasonText": "Excluded under Gate C1: commission of £75.00 is at or below the £75 de minimis threshold.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 891,
+      "completionTokens": 996,
+      "costUsd": 0.000315825
+    },
+    "fields": {
+      "provider_name": "Oakmoor Domestic Protect Limited",
+      "policy_reference": "ODP-2016-35509",
+      "cover_start_date": "2016-12-01",
+      "cancelled_date": null,
+      "total_premiums_paid": 900,
+      "commission_amount": 75,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C1.de_minimis",
+      "reasonText": "Excluded under Gate C1: commission of £75.00 is at or below the £75 de minimis threshold.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.000884625,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "C1.de_minimis",
+    "reasonText": "Excluded under Gate C1: commission of £75.00 is at or below the £75 de minimis threshold.",
+    "drivingField": "commission_amount"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-06.txt",
+  "timestamp": "2026-08-29T06:57:38.701Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 1043,
+      "completionTokens": 217,
+      "costUsd": 0.000469
+    },
+    "fields": {
+      "provider_name": "AULDBURY COVER GROUP",
+      "policy_reference": "ACG-2020-63307",
+      "cover_start_date": "2020-02-17",
+      "cancelled_date": null,
+      "total_premiums_paid": 1150,
+      "commission_amount": 0,
+      "commission_basis": "none",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C2.no_commission",
+      "reasonText": "Excluded under Gate C2: commission basis is recorded as none.",
+      "drivingField": "commission_basis"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 1073,
+      "completionTokens": 2380,
+      "costUsd": 0.000675475
+    },
+    "fields": {
+      "provider_name": "Auldbury Cover Group",
+      "policy_reference": "ACG-2020-63307",
+      "cover_start_date": "2020-02-17",
+      "cancelled_date": null,
+      "total_premiums_paid": 1150,
+      "commission_amount": 0,
+      "commission_basis": "none",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "C2.no_commission",
+      "reasonText": "Excluded under Gate C2: commission basis is recorded as none.",
+      "drivingField": "commission_basis"
+    }
+  },
+  "totalCostUsd": 0.001144475,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "C2.no_commission",
+    "reasonText": "Excluded under Gate C2: commission basis is recorded as none.",
+    "drivingField": "commission_basis"
+  }
+}

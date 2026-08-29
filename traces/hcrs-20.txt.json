@@ -1,0 +1,61 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-20.txt",
+  "timestamp": "2026-08-29T06:58:34.098Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 1886,
+      "completionTokens": 207,
+      "costUsd": 0.0006256
+    },
+    "fields": {
+      "provider_name": "Ashgrove Mutual Household Cover Limited",
+      "policy_reference": "AMH-2012-17403",
+      "cover_start_date": "2012-05-30",
+      "cancelled_date": null,
+      "total_premiums_paid": 3120,
+      "commission_amount": 468,
+      "commission_basis": "fixed",
+      "discretion_exercised": true,
+      "prior_ruling": null
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.prior_ruling",
+      "reasonText": "Insufficient data: prior_ruling field is missing.",
+      "drivingField": "prior_ruling"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 1930,
+      "completionTokens": 544,
+      "costUsd": 0.00028075
+    },
+    "fields": {
+      "provider_name": "Ashgrove Mutual Household Cover Limited",
+      "policy_reference": "AMH-2012-17403",
+      "cover_start_date": "2012-05-30",
+      "cancelled_date": null,
+      "total_premiums_paid": 3120,
+      "commission_amount": 468,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "totalCostUsd": 0.00090635,
+  "decision": {
+    "verdict": "ESCALATE_HUMAN",
+    "reasonCode": "DUAL_PASS.disagreement",
+    "reasonText": "Models disagreed on this document. Primary → INSUFFICIENT_DATA (MISSING.prior_ruling: Insufficient data: prior_ruling field is missing.). Secondary → ELIGIBLE (ELIGIBLE.b1_discretion: Eligible under Gate B1: discretionary premium setting was exercised by agent.). Escalated for human review."
+  }
+}

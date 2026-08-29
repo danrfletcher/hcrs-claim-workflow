@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-05.txt",
+  "timestamp": "2026-08-29T06:57:24.800Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 853,
+      "completionTokens": 152,
+      "costUsd": 0.000353
+    },
+    "fields": {
+      "provider_name": "Stanwick Home Emergency Limited",
+      "policy_reference": "SHE-2017-40915",
+      "cover_start_date": "2017-07-24",
+      "cancelled_date": null,
+      "total_premiums_paid": 1650,
+      "commission_amount": 198,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 863,
+      "completionTokens": 585,
+      "costUsd": 0.000210975
+    },
+    "fields": {
+      "provider_name": "Stanwick Home Emergency Limited",
+      "policy_reference": "SHE-2017-40915",
+      "cover_start_date": "2017-07-24",
+      "cancelled_date": null,
+      "total_premiums_paid": 1650,
+      "commission_amount": 198,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "NOT_ELIGIBLE",
+      "reasonCode": "B.neither_limb",
+      "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+      "drivingField": "commission_basis"
+    }
+  },
+  "totalCostUsd": 0.000563975,
+  "decision": {
+    "verdict": "NOT_ELIGIBLE",
+    "reasonCode": "B.neither_limb",
+    "reasonText": "Excluded: policy does not qualify under Limb B1 (discretion) or Limb B2 (ratio >= 35%).",
+    "drivingField": "commission_basis"
+  }
+}

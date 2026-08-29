@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-17.txt",
+  "timestamp": "2026-08-29T06:58:34.331Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 741,
+      "completionTokens": 147,
+      "costUsd": 0.00032460000000000003
+    },
+    "fields": {
+      "provider_name": "Ferrisgate Home Assist Ltd",
+      "policy_reference": "FHA-2021-72336",
+      "cover_start_date": "2021-09-15",
+      "cancelled_date": null,
+      "total_premiums_paid": 2000,
+      "commission_amount": 700,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 35.0% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 754,
+      "completionTokens": 359,
+      "costUsd": 0.0001463
+    },
+    "fields": {
+      "provider_name": "Ferrisgate Home Assist Ltd",
+      "policy_reference": "FHA-2021-72336",
+      "cover_start_date": "2021-09-15",
+      "cancelled_date": null,
+      "total_premiums_paid": 2000,
+      "commission_amount": 700,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 35.0% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.0004709,
+  "decision": {
+    "verdict": "ELIGIBLE",
+    "reasonCode": "ELIGIBLE.b2_ratio",
+    "reasonText": "Eligible under Gate B2: commission ratio of 35.0% meets or exceeds 35%.",
+    "drivingField": "commission_amount"
+  }
+}

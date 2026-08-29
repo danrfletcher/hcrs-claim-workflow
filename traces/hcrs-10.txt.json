@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-10.txt",
+  "timestamp": "2026-08-29T06:57:44.077Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 753,
+      "completionTokens": 171,
+      "costUsd": 0.0003558
+    },
+    "fields": {
+      "provider_name": "Thornlea Home Services Limited",
+      "policy_reference": "THS-2015-33028",
+      "cover_start_date": "2015-05-12",
+      "cancelled_date": null,
+      "total_premiums_paid": 1890,
+      "commission_amount": null,
+      "commission_basis": null,
+      "discretion_exercised": null,
+      "prior_ruling": null
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.commission_amount",
+      "reasonText": "Insufficient data: commission_amount is missing.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 767,
+      "completionTokens": 741,
+      "costUsd": 0.000242775
+    },
+    "fields": {
+      "provider_name": "Thornlea Home Services Limited",
+      "policy_reference": "THS-2015-33028",
+      "cover_start_date": "2015-05-12",
+      "cancelled_date": null,
+      "total_premiums_paid": 1890,
+      "commission_amount": null,
+      "commission_basis": null,
+      "discretion_exercised": null,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "INSUFFICIENT_DATA",
+      "reasonCode": "MISSING.commission_amount",
+      "reasonText": "Insufficient data: commission_amount is missing.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.000598575,
+  "decision": {
+    "verdict": "INSUFFICIENT_DATA",
+    "reasonCode": "MISSING.commission_amount",
+    "reasonText": "Insufficient data: commission_amount is missing.",
+    "drivingField": "commission_amount"
+  }
+}

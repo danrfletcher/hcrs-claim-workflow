@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-09.txt",
+  "timestamp": "2026-08-29T06:57:42.225Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 851,
+      "completionTokens": 246,
+      "costUsd": 0.0004654
+    },
+    "fields": {
+      "provider_name": "KIRKFIELD HOUSEHOLD COVER LIMITED",
+      "policy_reference": "KHC-2022-81190",
+      "cover_start_date": "2022-01-31",
+      "cancelled_date": null,
+      "total_premiums_paid": 540,
+      "commission_amount": 243,
+      "commission_basis": "discretionary",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 45.0% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 870,
+      "completionTokens": 458,
+      "costUsd": 0.00017975
+    },
+    "fields": {
+      "provider_name": "Kirkfield Household Cover Limited",
+      "policy_reference": "KHC-2022-81190",
+      "cover_start_date": "2022-01-31",
+      "cancelled_date": null,
+      "total_premiums_paid": 540,
+      "commission_amount": 243,
+      "commission_basis": "fixed",
+      "discretion_exercised": false,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b2_ratio",
+      "reasonText": "Eligible under Gate B2: commission ratio of 45.0% meets or exceeds 35%.",
+      "drivingField": "commission_amount"
+    }
+  },
+  "totalCostUsd": 0.0006451499999999999,
+  "decision": {
+    "verdict": "ELIGIBLE",
+    "reasonCode": "ELIGIBLE.b2_ratio",
+    "reasonText": "Eligible under Gate B2: commission ratio of 45.0% meets or exceeds 35%.",
+    "drivingField": "commission_amount"
+  }
+}

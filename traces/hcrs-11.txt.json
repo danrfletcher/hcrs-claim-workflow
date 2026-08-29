@@ -1,0 +1,62 @@
+{
+  "runId": "eval_1787986597561",
+  "docId": "hcrs-11.txt",
+  "timestamp": "2026-08-29T06:57:53.404Z",
+  "primary": {
+    "model": "openai/gpt-5.6-luna",
+    "usage": {
+      "promptTokens": 886,
+      "completionTokens": 150,
+      "costUsd": 0.00035720000000000006
+    },
+    "fields": {
+      "provider_name": "Halstock Domestic Cover Ltd",
+      "policy_reference": "HDC-2014-27615",
+      "cover_start_date": "2014-08-19",
+      "cancelled_date": null,
+      "total_premiums_paid": 2240,
+      "commission_amount": 336,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "secondary": {
+    "model": "z-ai/glm-5.3-flash",
+    "usage": {
+      "promptTokens": 914,
+      "completionTokens": 1387,
+      "costUsd": 0.0004153
+    },
+    "fields": {
+      "provider_name": "Halstock Domestic Cover Ltd",
+      "policy_reference": "HDC-2014-27615",
+      "cover_start_date": "2014-08-19",
+      "cancelled_date": null,
+      "total_premiums_paid": 2240,
+      "commission_amount": 336,
+      "commission_basis": "discretionary",
+      "discretion_exercised": true,
+      "prior_ruling": "none"
+    },
+    "decision": {
+      "verdict": "ELIGIBLE",
+      "reasonCode": "ELIGIBLE.b1_discretion",
+      "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+      "drivingField": "discretion_exercised"
+    }
+  },
+  "totalCostUsd": 0.0007725000000000001,
+  "decision": {
+    "verdict": "ELIGIBLE",
+    "reasonCode": "ELIGIBLE.b1_discretion",
+    "reasonText": "Eligible under Gate B1: discretionary premium setting was exercised by agent.",
+    "drivingField": "discretion_exercised"
+  }
+}

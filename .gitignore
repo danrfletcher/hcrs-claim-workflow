@@ -1,6 +1,5 @@
 node_modules
 .DS_Store
-tmp
-traces/
-_to_delete/
 .env
+tmp
+_to_delete/

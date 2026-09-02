@@ -41,7 +41,21 @@ export function evaluateEligibility(fields: ExtractedFields): Decision {
   }
 
   // 3. GATE C3: Prior Ruling Exclusion
-  if (fields.prior_ruling && fields.prior_ruling !== 'none') {
+  // Missing is NOT the same as 'none' — an unknown prior-ruling status must not be read
+  // as "no ruling exists" and fall through to the B1/B2 qualifying checks below, which
+  // could otherwise auto-decide ELIGIBLE on a claim a real prior ruling would exclude.
+  // Checked explicitly, and first, ahead of the qualifying-limb checks — not deferred to
+  // the catch-all missing-field block at the bottom of the function.
+  if (fields.prior_ruling === null) {
+    return {
+      verdict: 'INSUFFICIENT_DATA',
+      reasonCode: 'MISSING.prior_ruling',
+      reasonText: 'Insufficient data: prior_ruling field is missing.',
+      drivingField: 'prior_ruling'
+    };
+  }
+
+  if (fields.prior_ruling !== 'none') {
     return {
       verdict: 'NOT_ELIGIBLE',
       reasonCode: 'C3.prior_ruling',
@@ -117,14 +131,8 @@ export function evaluateEligibility(fields: ExtractedFields): Decision {
     };
   }
 
-  if (fields.prior_ruling === null) {
-    return {
-      verdict: 'INSUFFICIENT_DATA',
-      reasonCode: 'MISSING.prior_ruling',
-      reasonText: 'Insufficient data: prior_ruling field is missing.',
-      drivingField: 'prior_ruling'
-    };
-  }
+  // prior_ruling is already guaranteed non-null and 'none' at this point — Gate C3 above
+  // returns before this line otherwise. (No dead re-check here.)
 
   // Default Fallback
   return {

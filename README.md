@@ -4,9 +4,9 @@ A small agentic pipeline that reads a policy document, extracts the facts that m
 decides whether the claim is eligible under an invented redress scheme — with a second model
 pass, cost accounting, and an escalate-to-human path when the two passes disagree.
 
-## Problem chosen
+## Problem (Fictional)
 
-Problem #4, **Policy agreement extraction and eligibility**. The invented domain is the
+**Policy agreement extraction and eligibility**. The invented domain is the
 fictional Household Cover Redress Scheme (HCRS-1): historic home-emergency-cover policies where
 the selling agent could sometimes set the customer's premium (and commission) at their own
 discretion. The eligibility bar runs six gates in order — cover window (2011–2023) → early
